@@ -18,6 +18,7 @@
 
 #include "ev3Kit/communication/commandConstants.h"
 #include "ev3Kit/communication/ev3DirectCommand.h"
+#include "thirdparty/qslog/QsLog.h"
 
 static const uchar SYSTEM_COMMAND_REPLY =             0x01;    //  System command, reply required
 static const uchar SYSTEM_COMMAND_NO_REPLY =          0x81;    //  System command, reply not required
@@ -44,8 +45,9 @@ QString Ev3RobotCommunicationThread::uploadFile(const QString &sourceFile, const
 	// A path to file on the remote device.
 	const QString devicePath = targetDir + "/" + fileInfo.fileName();
 	QFile file(sourceFile);
-	/// @todo: Implement more detailed error reporting
 	if (!file.open(QIODevice::ReadOnly)) {
+		qDebug() << __FUNCTION__ << __LINE__;
+		QLOG_ERROR() << "File for uploading can not be opened";
 		return QString();
 	}
 
@@ -98,12 +100,16 @@ QString Ev3RobotCommunicationThread::uploadFile(const QString &sourceFile, const
 	QByteArray commandBeginResponse = receive(BEGIN_DOWNLOAD_RESPONSE_SIZE);
 
 	if (commandBeginResponse.at(4) == SYSTEM_REPLY_ERROR) {
+		qDebug() << __FUNCTION__ << __LINE__;
+		QLOG_ERROR() << "Begin command to USB responce is SYSTEM_REPLY_ERROR";
 		return QString();
 	}
 
 	char handle = commandBeginResponse.at(7);
 	int sizeSent = 0;
+	qDebug() << data.size();
 	while (sizeSent < data.size()) {
+		qDebug() << __FUNCTION__ << __LINE__;
 		const int sizeToSend = qMin(chunkSize, data.size() - sizeSent);
 		const int cmdContinueSize = 7 + sizeToSend;
 		QByteArray commandContinue(cmdContinueSize, 0);
@@ -118,13 +124,24 @@ QString Ev3RobotCommunicationThread::uploadFile(const QString &sourceFile, const
 			commandContinue[7 + i] = data.at(sizeSent++);
 		}
 
+		qDebug() << __FUNCTION__ << __LINE__;
+
 		send1(commandContinue);
+
+		qDebug() << __FUNCTION__ << __LINE__;
+
 		QByteArray commandContinueResponse = receive(CONTINUE_DOWNLOAD_RESPONSE_SIZE);
+
 		if (commandContinueResponse.at(7) != SUCCESS &&
 				(commandContinueResponse.at(7) != END_OF_FILE && sizeSent == data.size())) {
+			qDebug() << __FUNCTION__ << __LINE__ << (commandContinueResponse.at(7) != SUCCESS)
+					<< (commandContinueResponse.at(7) != END_OF_FILE) << (sizeSent == data.size())
+					<< sizeSent << data.size() << (int)commandContinueResponse.at(7);
 			return QString();
 		}
 	}
+
+	qDebug() << __FUNCTION__ << __LINE__;
 
 	return devicePath;
 }
