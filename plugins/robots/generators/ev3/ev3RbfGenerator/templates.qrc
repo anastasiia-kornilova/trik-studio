@@ -220,5 +220,10 @@
         <file>templates/sensors/lineLeader/readSteering.t</file>
         <file>templates/sensors/lineLeader/sleep.t</file>
         <file>templates/sensors/lineLeader/wakeUp.t</file>
+        <file>templates/switch/middle.t</file>
+        <file>templates/switch/default.t</file>
+        <file>templates/switch/oneCase.t</file>
+        <file>templates/switch/head.t</file>
+        <file>templates/switch/conditionsSeparator.t</file>
     </qresource>
 </RCC>
