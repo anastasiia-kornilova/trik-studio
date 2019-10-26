@@ -50,7 +50,7 @@
         <translation>От блока &quot;Цикл&quot; должно отходить в точности две связи</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+15"/>
         <source>Two outgoing links marked with &quot;body&quot; found</source>
         <translation>Обе связи помечены меткой &quot;тело цикла&quot;</translation>
     </message>

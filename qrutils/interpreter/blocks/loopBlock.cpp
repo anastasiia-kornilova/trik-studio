@@ -48,7 +48,8 @@ bool LoopBlock::initNextBlocks()
 			return false;
 		}
 
-		if (stringProperty(linkId, "Guard").toLower() == "iteration") {
+		const auto & linkProperty = stringProperty(linkId, "Guard").toLower();
+		if (linkProperty == "iteration" || linkProperty.simplified() == tr("body")) {
 			if (!iterationFound) {
 				mIterationStartBlockId = targetBlockId;
 				iterationFound = true;
@@ -56,7 +57,7 @@ bool LoopBlock::initNextBlocks()
 				error(tr("Two links marked as \"body\" found"));
 				return false;
 			}
-		} else if (stringProperty(linkId, "Guard") == "") {
+		} else if (linkProperty == "") {
 			if (!nextFound) {
 				mNextBlockId = targetBlockId;
 				nextFound = true;

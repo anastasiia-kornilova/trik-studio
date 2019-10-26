@@ -378,7 +378,12 @@
         <translation>Исходящая связь ни к чему не подключена</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+5"/>
+        <source>body</source>
+        <translation>тело цикла</translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Two links marked as &quot;body&quot; found</source>
         <translation>Найдено две связи, помеченные как &quot;тело цикла&quot;</translation>
     </message>
@@ -400,7 +405,12 @@
         <translation>Исходящая связь ни к чему не подключена</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+5"/>
+        <source>body</source>
+        <translation>тело цикла</translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Two links marked as &quot;body&quot; found</source>
         <translation>Найдено две связи, помеченные как &quot;тело цикла&quot;</translation>
     </message>

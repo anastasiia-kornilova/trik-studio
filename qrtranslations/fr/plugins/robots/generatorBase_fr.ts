@@ -83,7 +83,7 @@
         <translation>Le bloc de boucle doit avoir exactement deux liens sortants</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+15"/>
         <source>Two outgoing links marked with &quot;body&quot; found</source>
         <translation>Deux liens sortants marqués sont marqués comme &quot;corps de boucle&quot;</translation>
     </message>

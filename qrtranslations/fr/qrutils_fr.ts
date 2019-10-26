@@ -282,7 +282,12 @@
         <translation>Le lien sortant n&apos;est pas connecté</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+5"/>
+        <source>body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Two links marked as &quot;body&quot; found</source>
         <translation>Deux liens marqués comme &quot;body&quot; sont trouvés</translation>
     </message>
@@ -300,7 +305,12 @@
         <translation>Le lien sortant n&apos;est pas connecté</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+5"/>
+        <source>body</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Two links marked as &quot;body&quot; found</source>
         <translation>Deux liens marqués comme &quot;body&quot; sont trouvés</translation>
     </message>

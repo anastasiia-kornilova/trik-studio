@@ -42,8 +42,8 @@ bool PreconditionalLoopBlock::initNextBlocks()
 			return false;
 		}
 
-		const auto & guard = stringProperty(linkId, "Guard").toLower();
-		if (guard == "iteration") {
+		const auto & linkProperty = stringProperty(linkId, "Guard").toLower();
+		if (linkProperty == "iteration" || linkProperty.simplified() == tr("body")) {
 			if (!conditionFound) {
 				mLoopStartBlockId = targetBlockId;
 				conditionFound = true;
@@ -51,7 +51,7 @@ bool PreconditionalLoopBlock::initNextBlocks()
 				error(tr("Two links marked as \"body\" found"));
 				return false;
 			}
-		} else if (guard == "") {
+		} else if (linkProperty == "") {
 			if (!nextFound) {
 				mNextBlockId = targetBlockId;
 				nextFound = true;
