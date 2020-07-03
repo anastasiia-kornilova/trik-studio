@@ -178,6 +178,7 @@ test_script:
   - echo %cd%
   - cd %BUILD_DIR%\bin\%CONFIGURATION%
   - dir
+  - python "%APPVEYOR_BUILD_FOLDER%\buildScripts\appveyor\fieldstest.py" 2D-model.exe %APPVEYOR_BUILD_FOLDER%\testing
   - bash -c "env LC_ALL=C date -u"
   - cmd /c %TEST_SUITE%
   #- curl "https://dl.trikset.com/edu/.solutions20200701/test.zip" --output myTS.zip
