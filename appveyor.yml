@@ -180,7 +180,7 @@ test_script:
   - cmd /c %TEST_SUITE%
   - curl "https://dl.trikset.com/edu/.solutions20200701/test.zip" --output myTS.zip
   - unzip myTS.zip
-  - python "%APPVEYOR_BUILD_FOLDER%\buildScripts\appveyor\fieldstest.py" %APPVEYOR_BUILD_FOLDER%\2D-model.exe %APPVEYOR_BUILD_FOLDER%\testing
+  - python "%APPVEYOR_BUILD_FOLDER%\buildScripts\appveyor\fieldstest.py" %BUILD_DIR%\2D-model.exe %BUILD_DIR%\testing
 
 after_test:
 # zip binaries
