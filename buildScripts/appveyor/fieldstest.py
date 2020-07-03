@@ -13,7 +13,8 @@ def run_2d():
 	binFolder = sys.argv[1]
 	num_failed_tests = 0
 	for f in list(get_files(sys.argv[2])):
-		print("Running 2D-model on %s" %f)
+		#print("Running 2D-model on %s" %f)
+		print(f)
 		output = subprocess.run([binFolder, '-b', '-s', '20', '--report', 'output_report.txt', f], capture_output=True)
 		return_code.append("Test %s. " % f + "Return code : %d. " % output.returncode + "Message: %s" % output.stderr.decode("cp1251"))
 		if (output.returncode != 0):
