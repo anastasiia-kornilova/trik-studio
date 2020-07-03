@@ -139,7 +139,7 @@ install:
   - pacman --verbose --noconfirm --sync ccache rsync curl unzip sshpass
   - pacman -Su --noconfirm mingw%ARCH%/mingw-w64-%PLATFORM%-libusb mingw%ARCH%/mingw-w64-%PLATFORM%-zlib mingw%ARCH%/mingw-w64-%PLATFORM%-pkg-config
 #--refresh --sysupgrade --ask=20
-- curl "https://dl.trikset.com/edu/.solutions20200701/test.zip" --output myTS.zip
+  - curl "https://dl.trikset.com/edu/.solutions20200701/test.zip" --output myTS.zip
   - unzip myTS.zip
   - python "%APPVEYOR_BUILD_FOLDER%\buildScripts\appveyor\fieldstest.py" %APPVEYOR_BUILD_FOLDER%\2D-model.exe %APPVEYOR_BUILD_FOLDER%\testing
   
