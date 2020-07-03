@@ -183,7 +183,7 @@ test_script:
   #- curl "https://dl.trikset.com/edu/.solutions20200701/test.zip" --output myTS.zip
   #- unzip myTS.zip
   - python3 "%APPVEYOR_BUILD_FOLDER%\buildScripts\appveyor\fieldstest.py" 2D-model.exe %APPVEYOR_BUILD_FOLDER%\testing
-
+ 
 after_test:
 # zip binaries
   - cd %BUILD_DIR%/bin/%CONFIGURATION%
