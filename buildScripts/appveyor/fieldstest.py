@@ -13,7 +13,7 @@ if __name__=='__main__':
 	num_failed_tests = 0
 	for f in list(get_files(sys.argv[2])):
 #		output = subprocess.run([bin_path, '-b', '-s', '20', f], capture_output=True)
-		print("Test" + f.encode('utf-8'))
+		print(f.encode('utf-8'))
 #		print("Return code : %d. " % output.returncode)
 #		print("Message: %s" % output.stderr.encode("utf-8"))
 #		if (output.returncode != 0):
