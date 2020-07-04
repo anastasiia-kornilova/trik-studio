@@ -12,13 +12,11 @@ if __name__=='__main__':
 
 	num_failed_tests = 0
 	for f in list(get_files(sys.argv[2])):
-#		output = subprocess.run([bin_path, '-b', '-s', '20', f], capture_output=True)
-		print(f)
-#		print("Return code : %d. " % output.returncode)
-#		print("Message: %s" % output.stderr.encode("utf-8"))
-#		if (output.returncode != 0):
-#			print("Solution failed with return code %d " % output.returncode)
-#			num_failed_tests += 1
+		output = subprocess.run([bin_path, '-b', '-s', '20', f], capture_output=True)
+		print("Test %s. " % f + "Return code : %d. " % output.returncode + "Message: %s" % output.stderr)
+		if (output.returncode != 0):
+			print("Solution failed with return code %d " % output.returncode)
+			num_failed_tests += 1
 		
 	if num_failed_tests == 0:
 		sys.exit(0)
