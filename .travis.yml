@@ -107,7 +107,7 @@ script:
   - if $INSTALLER ; then ./buildScripts/travis/build_installer.sh ; fi
   - curl --output tests_qrs.zip "https://dl.trikset.com/edu/.solutions20200701/test_fields.zip"
   - unzip tests_qrs.zip && pwd
-  - python3.7 ./buildScripts/travis/fieldstest.py bin/$CONFIG/2D-model testing 1>&2
+  - python3.7 ./buildScripts/tests/fieldstest.py bin/$CONFIG/2D-model testing 1>&2
 
 after_script:
   - ./buildScripts/travis/after_script.sh
