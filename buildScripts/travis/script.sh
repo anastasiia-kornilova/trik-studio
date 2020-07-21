@@ -43,5 +43,6 @@ $EXECUTOR bash -lixc "\
 && sh -c \"export ASAN_OPTIONS=detect_leaks=0:detect_stack_use_after_return=1:fast_unwind_on_malloc=0:use_sigaltstack=0 LSAN_OPTIONS=suppressions=lsan.supp:fast_unwind_on_malloc=0:verbosity=1:log_threads=1  DISPLAY=:0 && cd bin/$CONFIG && $TESTS\""
 df -h .
 $EXECUTOR bash -ic buildScripts/travis/checkStatus.sh
+$EXECUTOR python3.7 ./buildScripts/tests/fieldstest.py bin/$CONFIG/2D-model testing 1>&2
 
 $CODECOV
