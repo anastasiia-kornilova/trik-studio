@@ -107,7 +107,7 @@ script:
   - if $INSTALLER ; then ./buildScripts/travis/build_installer.sh ; fi
   - curl --output tests_qrs.zip "https://dl.trikset.com/edu/.solutions20200701/test_fields.zip"
   - unzip tests_qrs.zip && pwd
-  - if [[ $TRAVIS_OS_NAME == linux ]] ; then echo Start docker for test 2d-model ; $EXECUTOR bash python3.7 ./buildScripts/tests/fieldstest.py bin/$CONFIG/2D-model testing 1>&2 ; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ] ; then echo Start docker for test 2d-model ; $EXECUTOR python3.7 ./buildScripts/tests/fieldstest.py bin/$CONFIG/2D-model testing 1>&2 ; fi
   - python3.7 ./buildScripts/tests/fieldstest.py bin/$CONFIG/2D-model testing 1>&2
 
 after_script:
