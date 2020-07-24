@@ -107,7 +107,7 @@ script:
   - export TIMEOUT=false
   - wait $WPID ; RES=$?; kill -0 $KPID && kill $KPID > /dev/null || export TIMEOUT=true ; ( exit $RES )
   - if $INSTALLER ; then ./buildScripts/travis/build_installer.sh ; fi
-  - $EXECUTOR python3.7 ./buildScripts/tests/fieldstest.py bin/$CONFIG/2D-model testing 1>&2
+  - $EXECUTOR python3.7 "./buildScripts/tests/fieldstest.py bin/$CONFIG/2D-model testing" 
 
 after_script:
   - ./buildScripts/travis/after_script.sh
