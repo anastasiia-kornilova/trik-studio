@@ -108,7 +108,7 @@ script:
   - wait $WPID ; RES=$?; kill -0 $KPID && kill $KPID > /dev/null || export TIMEOUT=true ; ( exit $RES )
   - if $INSTALLER ; then ./buildScripts/travis/build_installer.sh ; fi
   - $EXECUTOR bash -ic bin/$CONFIG/build-checker-installer.sh
-  - $EXECUTOR python3.7 ./buildScripts/tests/fieldstest.py bin/$CONFIG/trik-studio-checker/bin/2D-model testing 
+  - $EXECUTOR python3.7 ./buildScripts/tests/fieldstest.py bin/$CONFIG/trikStudio-checker/bin/2D-model testing 
 
 after_script:
   - ./buildScripts/travis/after_script.sh
