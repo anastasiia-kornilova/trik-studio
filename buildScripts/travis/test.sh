@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-export LANG=en_US.UTF-8 && $EXECUTOR bash -lixc "curl --output tests_qrs.zip https://dl.trikset.com/edu/.solutions20200701/test.zip && 7z x tests_qrs.zip && ls testing"
+export LANG=en_US.UTF-8 && $EXECUTOR bash -lixc "curl --output tests_qrs.zip https://dl.trikset.com/edu/.solutions20200701/test.7z && 7z x tests_qrs.zip && ls testing"
 if [ $TRAVIS_OS_NAME = "linux" ]
 then
 	$EXECUTOR bin/$CONFIG/build-checker-installer.sh
