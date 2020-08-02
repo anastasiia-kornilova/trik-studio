@@ -50,5 +50,7 @@ matrix:
     - stage: test
       os: linux
       env: CLEAN_ENV_TEST=true
+      before_install:
+      - sudo apt-get -y install p7zip-full
       script:
       - ./buildScripts/travis/run_clean_env_test.sh
