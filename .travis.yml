@@ -7,6 +7,7 @@ stages:
   - lint
   - build
   - installer
+  - test
 
 env:
   global:
@@ -84,6 +85,10 @@ matrix:
       name: "macOS release installer"
       env: INSTALLER=true QMAKE_EXTRA="$QMAKE_EXTRA CONFIG+=no-sanitizers" BUILD_TIMEOUT=1800
 
+    - stage: test
+      os: linux
+      env: CLEAN_ENV_TEST=true
+
 before_install:
   - if [[ $TRAVIS_OS_NAME  == osx ]] ; then [[ -n ${TRIK_PYTHON3_VERSION_MINOR:-} ]] || export TRIK_PYTHON3_VERSION_MINOR="$(python3 -V | sed 's#^Python [0-9]\.\([0-9]\)\.[0-9]*$#\1#g')" ; fi
   - if ./buildScripts/travis/has_only_skipped_files.sh ; then echo "Triggering early terminate..." ; set -xo functrace ; travis_terminate 0 ; fi
@@ -112,4 +117,4 @@ after_script:
   - sync ; wc -l build.log ; tail -n 1000 build.log
 
 after_success:
-  - true
+  - if $CLEAN_ENV_TEST; then ./buildScripts/travis/run_clean_env_test.sh; fi
