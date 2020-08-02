@@ -51,6 +51,9 @@ matrix:
       os: linux
       env: CLEAN_ENV_TEST=true
       before_install:
-      - sudo apt-get -y install p7zip-full libxkbcommon-x11-0 python3.7
+      - sudo apt-get -y install p7zip-full libxkbcommon-x11-0
+      - sudo add-apt-repository ppa:deadsnakes/ppa
+      - sudo apt update
+      - sudo apt install python3.7
       script:
       - ./buildScripts/travis/run_clean_env_test.sh
