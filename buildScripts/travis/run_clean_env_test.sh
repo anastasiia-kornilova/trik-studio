@@ -7,4 +7,5 @@ curl --output test_qrs.7z "https://dl.trikset.com/edu/.solutions20200701/test.7z
 curl --output installer.run "https://dl.trikset.com/ts/fresh/installer/trik-studio-installer-linux-master.run"
 chmod +x installer.run
 ldd ./installer.run
+./installer.run
 ls -la .
