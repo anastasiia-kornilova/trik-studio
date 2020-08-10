@@ -51,7 +51,7 @@ matrix:
       os: osx
       before_install:
       install:
-      - homebrew install p7zip
+      - brew install p7zip
       script:
       - ./buildScripts/travis/run_clean_env_test.sh
 
