@@ -17,6 +17,7 @@ esac
 
 curl --output installer.dmg "${INSTALLER_URL}"
 sudo hdiutil attach installer.dmg
+ls /Volumes/trik-studio-offline-mac-installer-7a6802/
 sudo installer -pkg /Volumes/trik-studio-offline-mac-installer-7a6802 -target /
 sudo installer -package /Volumes/installer/installer.pkg -target /
 ./installer.dmg --platform minimal --script ./installer/trik_studio_installscript.qs
