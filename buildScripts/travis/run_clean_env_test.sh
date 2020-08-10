@@ -17,7 +17,7 @@ esac
 
 curl --output installer.dmg "${INSTALLER_URL}"
 sudo hdiutil attach installer.dmg
-sudo /Volumes/trik-studio-offline-mac-installer-7a6802 --platform minimal
+sudo installer /Volumes/trik-studio-offline-mac-installer-7a6802 --platform minimal
 sudo installer -package /Volumes/installer/installer.pkg -target /
 ./installer.dmg --platform minimal --script ./installer/trik_studio_installscript.qs
 env QT_QPA_PLATFORM=minimal python3.7 ./buildScripts/tests/fieldstest.py "$HOME/TRIKStudio/bin/2D-model" testing
