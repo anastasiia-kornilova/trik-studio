@@ -49,7 +49,6 @@ matrix:
   include:
     - stage: test
       os: osx
-      env: MACHINE_NAME=mac
       before_install:
       install:
       - brew install p7zip
