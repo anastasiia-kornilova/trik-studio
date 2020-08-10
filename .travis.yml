@@ -4,9 +4,6 @@ git:
   depth: 20
 
 stages:
-  - lint
-  - build
-  - installer
   - test
 
 env:
