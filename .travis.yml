@@ -49,6 +49,9 @@ matrix:
   include:
     - stage: test
       os: osx
+      env: MACHINE_NAME=mac
+      before_install:
+      install:
       script:
       - ./buildScripts/travis/run_clean_env_test.sh
 
