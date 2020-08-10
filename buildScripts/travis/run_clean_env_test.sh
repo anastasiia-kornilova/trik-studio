@@ -15,7 +15,7 @@ case $TRAVIS_OS_NAME in
   *) exit 1 ;;
 esac
 
-curl --output installer.run "${INSTALLER_URL}"
-chmod +x installer.run
-./installer.run --platform minimal --script ./installer/trik_studio_installscript.qs
+curl --output installer.dmg "${INSTALLER_URL}"
+chmod +x installer.dmg
+./installer.dmg --platform minimal --script ./installer/trik_studio_installscript.qs
 env QT_QPA_PLATFORM=minimal python3.7 ./buildScripts/tests/fieldstest.py "$HOME/TRIKStudio/bin/2D-model" testing
