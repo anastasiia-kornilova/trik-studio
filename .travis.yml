@@ -52,6 +52,7 @@ matrix:
       env: MACHINE_NAME=mac
       before_install:
       install:
+      - brew install p7zip
       script:
       - ./buildScripts/travis/run_clean_env_test.sh
 
