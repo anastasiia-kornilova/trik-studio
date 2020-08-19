@@ -53,6 +53,7 @@ matrix:
       install:
       - brew install p7zip
       script:
+      - if [ -d "/usr/local/Cellar/qt/" ]; then rm -r "/usr/local/Cellar/qt/"; fi
       - ./buildScripts/travis/run_clean_env_test.sh
 
 before_install:
